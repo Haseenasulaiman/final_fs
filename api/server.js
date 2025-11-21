@@ -5,7 +5,9 @@ const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "*",
+}));
 app.use(bodyParser.json({ limit: "50mb" }));
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key-change-in-production";
 const MONGO_URL = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/drawingsDB";
